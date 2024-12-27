@@ -7,4 +7,3 @@ services:
       - "80:80"
     volumes:
       - .:/var/www/html:rw
-    user: "www-data"

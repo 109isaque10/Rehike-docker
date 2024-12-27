@@ -5,9 +5,6 @@ RUN apt-get update && \
     apt-get install -y nginx && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy application files
-COPY . /var/www/html
-
 # Configure Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 

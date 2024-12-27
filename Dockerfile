@@ -8,6 +8,9 @@ RUN apt-get update && \
 # Set ownership for web root
 RUN chown -R www-data:www-data /var/www/html
 
+# Set read and write permissions for web root
+RUN chmod -R a+rw /var/www/html
+
 # Configure Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 

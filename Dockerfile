@@ -1,12 +1,5 @@
-FROM php:8-fpm
-
-# Install Nginx
-RUN apt-get update && \
-    apt-get install -y nginx && \
-    rm -rf /var/lib/apt/lists/*
-
-# Configure Nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+FROM nginx:alpine
+ADD nginx/default.conf /etc/nginx/conf.d
 
 # Expose port 80
 EXPOSE 80

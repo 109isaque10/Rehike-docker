@@ -1,9 +1,23 @@
-version: '3.8'
-
+version: "3"
 services:
-  web:
-    build: .
-    ports:
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports: 
       - "80:80"
+    networks:
+      - internal
     volumes:
-      - .:/var/www/html:rw
+      - ./:/var/www/html/
+      - ./logs/nginx:/var/log/nginx/
+  php:
+    image: php:fpm-alpine
+    networks:
+      - internal
+    volumes:
+      - ./:/var/www/html/
+      - ./logs/php.log:/var/log/fpm-php.www.log
+networks:
+  internal:
+    driver: bridge

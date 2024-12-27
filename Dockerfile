@@ -7,6 +7,7 @@ RUN apt-get update && \
 
 # Configure Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY fastcgi.conf /etc/nginx/fastcgi.conf
 
 # Expose port 80
 EXPOSE 80
